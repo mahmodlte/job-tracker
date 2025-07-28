@@ -11,9 +11,16 @@ const JobForm = () => {
     "Offer",
     "Ghosted",
   ];
+
+  const formSubmit = (formData) => {
+    console.log(formData);
+  };
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex flex-col  justify-center">
+      <form
+        onSubmit={handleSubmit(formSubmit)}
+        className="flex flex-col  justify-center"
+      >
         <InputField
           label="Role"
           type="text"
@@ -59,7 +66,12 @@ const JobForm = () => {
           required={true}
           options={workLocationOptions}
         />
-        <input type="submit" />
+        <button
+          type="submit"
+          className="border-2 w-52 h-11 border-gray-400 rounded-sm hover:bg-black hover:text-white hover:border-0 hover:cursor-pointer"
+        >
+          Add
+        </button>
       </form>
     </div>
   );
