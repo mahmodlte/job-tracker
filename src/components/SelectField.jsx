@@ -8,8 +8,12 @@ const SelectField = ({ name, label, options, register, required }) => {
         {...register(name, { required })}
       >
         <option value="">Select</option>
-        {options.map((option) => {
-          return <option value={option}>{option}</option>;
+        {options.map((option, index) => {
+          return (
+            <option key={`${option} - ${index}`} value={option}>
+              {option}
+            </option>
+          );
         })}
       </select>
     </div>
