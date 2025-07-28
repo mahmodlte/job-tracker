@@ -1,9 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className=" font-mono text-3xl p-3 shadow-md">
-        <h1>Job Tracker</h1>
+    <>
+      <header className=" font-mono  flex items-center  p-3 shadow-md">
+        <h1 className="text-3xl">Job Tracker</h1>
+        <Link className="mx-5  hover:text-gray-700" to="/">
+          Home
+        </Link>{" "}
+        |{" "}
+        <Link className="mx-5  hover:text-gray-700" to="/add">
+          Add Job
+        </Link>
       </header>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Outlet />
@@ -16,7 +23,7 @@ const Layout = () => {
           </p>
         </div>
       </footer>
-    </div>
+    </>
   );
 };
 
