@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./componets/Layout";
+import Layout from "./components/Layout";
 import App from "./App";
 import JobAdd from "./pages/JobAdd";
-import NotFound from "./componets/NotFound";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
   {
