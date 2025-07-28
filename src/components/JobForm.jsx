@@ -1,7 +1,16 @@
 import { useForm } from "react-hook-form";
 import InputField from "./InputField";
+import SelectField from "./SelectField";
 const JobForm = () => {
   const { register, handleSubmit } = useForm();
+  const workLocationOptions = ["Remote", "Hybrid", "On-Site"];
+  const statusOptions = [
+    "Applied",
+    "Interviewing",
+    "Rejected",
+    "Offer",
+    "Ghosted",
+  ];
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex flex-col  justify-center">
@@ -20,14 +29,14 @@ const JobForm = () => {
           placeholder="Enter Company Name"
           register={register}
           required={true}
+        />{" "}
+        <SelectField
+          label={"Application Status"}
+          name={"status"}
+          register={register}
+          required={true}
+          options={statusOptions}
         />
-        <select {...register("status", { required: true })}>
-          <option value="applied">Applied</option>
-          <option value="interview">Interview</option>
-          <option value="rejected">Rejected</option>
-          <option value="offer">Offer</option>
-          <option value="ghosted">Ghosted</option>
-        </select>
         <InputField
           label="Date Applied"
           type="date"
@@ -43,11 +52,13 @@ const JobForm = () => {
           register={register}
           required={true}
         />
-        <select {...register("location", { required: true })}>
-          <option value="remote">Remote</option>
-          <option value="hybrid">Hybrid</option>
-          <option value="onsite">On-Site</option>
-        </select>
+        <SelectField
+          name={"location"}
+          label={"Role Location"}
+          register={register}
+          required={true}
+          options={workLocationOptions}
+        />
         <input type="submit" />
       </form>
     </div>
